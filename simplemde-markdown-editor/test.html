@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Markdown2Html</title>
+</head>
+<body>
+<link rel="stylesheet" href="debug/simplemde.css" />
+<script src="debug/simplemde.js"></script>
+<script src="https://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script><!--在线加载jQuery文件-->
+<div class="form-group">
+    <textarea name="field" id="fieldTest" cols="30" rows="10"></textarea>
+</div>
+<script type="text/javascript">
+    $(function() {
+        var simplemde = new SimpleMDE({<!--实例化Markdown编辑器-->
+        element: document.getElementById("fieldTest"),
+        autoDownloadFontAwesome: true,
+        status: false
+        });
+        var testPlain = simplemde.value(),<!--获取文章内容-->
+            testMarkdown = simplemde.markdown(testPlain);
+        $(".editor-preview-side").addClass("markdown-body");
+    });
+
+</script>
+<link rel="stylesheet" href="github-markdown-css/github-markdown.css" /> <!--引用github的Markdown风格,标题下带一线-->
+</body>
+</html>
